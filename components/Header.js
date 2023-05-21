@@ -10,8 +10,8 @@ const Header = () => {
   );
 
   return (
-    <div className="py-8 px-4 w-full bg-gray-200 border border-gray-400 flex justify-between rounded-lg">
-      <h1 className="text-2xl font-bold">SolSend</h1>
+    <div className="py-8 px-4 w-full bg-gray-200 border-gray-400 flex flex-col items-center rounded-lg">
+      <h1 className="text-2xl font-bold mb-4">InterPal</h1>
       <div className="flex items-center">
         <WalletMultiButtonDynamic />
       </div>

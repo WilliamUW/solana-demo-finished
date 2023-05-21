@@ -42,60 +42,33 @@ export default function Home() {
   return (
     <main className={`bg-gray-200 h-screen w-full p-8`}>
       <Header />
-      <div className="p-6">
-        <p className="text-lg">Send SOL to anyone on the Solana blockchain.</p>
-        {/* show status saying whether the user is connected or not */}
-        <p className="text-lg">Connected: {publicKey ? "true" : "false"}</p>
+      {!publicKey && (
+        <div className="p-6 flex flex-col items-center">
+          <p className="text-lg">Mint NFTs across 13 chain through chat!</p>
+          <p>
+            InterPal simplifies NFT minting, coin swaps, and crypto transactions
+            with an intuitive chatbot with cross-chain interoperability.
+          </p>
+          <p>| </p>
+          {/* show status saying whether the user is connected or not */}
+          <p className="text-lg">Connected: {publicKey ? "true" : "false"}</p>
 
-        <p className="text-lg">
-          Balance: {(balance / web3.LAMPORTS_PER_SOL).toFixed(4)} SOL
-        </p>
+          <p className="text-lg">
+            Balance: {(balance / web3.LAMPORTS_PER_SOL).toFixed(4)} SOL
+          </p>
 
-        <div className="h-24"></div>
+          <div className="h-24"></div>
+        </div>
+      )}
 
-        {/* once the transaction is complete, add a blue popup with a darker blue border that tells the user and lets them view the transaction on solscan */}
-        {transactionSignature && (
-          <div className="bg-blue-100 border border-blue-400 rounded-lg p-4">
-            <p className="text-lg">
-              Transaction complete!{" "}
-              <a
-                className="text-blue-500"
-                href={`https://explorer.solana.com/tx/${transactionSignature}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                View on SolScan
-              </a>
-            </p>
-          </div>
-        )}
-
-        {/* create a form with an amount of sol to send, address, and confirm button */}
-        <form className="flex flex-col space-y-2">
-          <label className="text-lg">Amount of SOL to send</label>
-          <input
-            className="border border-gray-400 rounded-lg p-2"
-            type="number"
-            placeholder="0.0"
-            onChange={(e) => setAmountToSend(e.target.value)}
-          />
-
-          <label className="text-lg">Recipient Address</label>
-          <input
-            className="border border-gray-400 rounded-lg p-2"
-            type="text"
-            placeholder="Enter a Solana address"
-            onChange={(e) => setRecipientAddress(e.target.value)}
-          />
-
-          <button
-            onClick={(e) => sendSol(e)}
-            className="bg-blue-500 text-white rounded-lg p-2 mt-4"
-          >
-            Send
-          </button>
-        </form>
-      </div>
+      {publicKey && (
+        <iframe
+          height="100%"
+          width="100%"
+          src="https://creator.voiceflow.com/prototype/64669b92bf42a20007b01df5"
+          title="InterPal"
+        ></iframe>
+      )}
     </main>
   );
 }
