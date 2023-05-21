@@ -49,17 +49,15 @@ export default function Home() {
             InterPal simplifies NFT minting, coin swaps, and crypto transactions
             with an intuitive chatbot with cross-chain interoperability.
           </p>
-          <p>| </p>
-          {/* show status saying whether the user is connected or not */}
-          <p className="text-lg">Connected: {publicKey ? "true" : "false"}</p>
-
-          <p className="text-lg">
-            Balance: {(balance / web3.LAMPORTS_PER_SOL).toFixed(4)} SOL
-          </p>
-
-          <div className="h-24"></div>
         </div>
       )}
+
+      <div className="p-6 flex flex-col items-center">
+        <p className="text-lg">Connected: {publicKey ? "true" : "false"}</p>
+        <p className="text-lg">
+          Balance: {(balance / web3.LAMPORTS_PER_SOL).toFixed(4)} SOL
+        </p>
+      </div>
 
       {publicKey && (
         <iframe
